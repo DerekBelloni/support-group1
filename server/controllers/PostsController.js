@@ -29,6 +29,7 @@ export class PostsController extends BaseController {
 
   async getPostsById(req, res, next) {
     try {
+      req.body.profileId = req.userInfo.id
       const posts = await postsService.getPostById(req.params.id)
       return res.send(posts)
     } catch (error) {
