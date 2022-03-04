@@ -35,41 +35,58 @@
 <body class="debug">
 
   <!-- NOTE THIS IS THE HEADER/NAV BAR -->
-  <section>
-    <header>
-      <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
-        <a class="navbar-brand" href="#">
-          <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-            loading="lazy">
-          <span class="ml-2">Villain Support Group</span>
-        </a>
-        <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
-          aria-controls="offcanvasLeft">Profiles</button>
 
-        <!-- TODO MAKE THIS THE HOME BUTTON -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-          </div>
+
+  <header>
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
+      <a class="navbar-brand" href="#">
+        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+          loading="lazy">
+        <span class="ml-2">Villain Support Group</span>
+      </a>
+      <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
+        aria-controls="offcanvasLeft">Profiles</button> -->
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
         </div>
-        <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-      </nav>
-    </header>
+      </div>
+      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+    </nav>
+  </header>
   </section>
 
+  <form onsubmit="app.postsController.createPost(id)">
+    <div class="">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          <h5>Whats on your mind today?</h5>
+        </label>
+        <textarea name="description" class="form-control" min="5" max="500" id="description" rows="3"></textarea>
+      </div>
+      <h6>Image:</h6>
+      <input class="form-control my-3" type="text" placeholder="Image Upload..." aria-label="default input example"
+        id="image" name="image">
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary text-end">Post
+        </button>
+      </div>
+    </div>
+  </form>
+
   <!-- NOTE THIS IS THE POST FORM -->
-  <section>
+  <!-- <section>
     <main class="containter-fluid mt-3">
       <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-          <form onsubmit="app.postController.makePost(id)">
+          <form onsubmit="app.postController.createPost(id)">
             <div class="form-group">
 
-              <!-- TODO MAKE IMAGE IN URL DISPLAY -->
               <div id="temp-image"></div>
               <label class="p-2" for="formGroupExampleInput">Image URL</label>
               <input type="text" class="form-control" name="image" id="image" placeholder="IMG Url">
@@ -77,8 +94,8 @@
             <div class="form-group">
               <label for="formGroupExampleInput2">Post</label>
 
-              <!-- TODO NEED TEXT TO WRAP -->
-              <input type="text" class="form-control overflow-auto" name="post" id="post" placeholder="Post Here">
+              <input type="text" class="form-control overflow-auto" name="description" id="description"
+                placeholder="Post Here">
             </div>
             <div class="d-flex justify-content-end">
               <button type="onsubmit" class="btn btn-info">Post</button>
@@ -87,7 +104,7 @@
         </div>
         <div class="col-3"></div>
       </div>
-  </section>
+  </section> -->
 
   <!-- NOTE THIS IS THE TEST CARD -->
   <section>
@@ -140,11 +157,8 @@
   </section>
 
   <!-- NOTE THIS IS TO DISPLAY ANY POSTS -->
-  <section>
-    <div class="row"></div>
-    <div class="col-3"></div>
-    <div class="col-6" id="display-posts"></div>
-    <div class="col-3"></div>
+  <section id="display-posts">
+
   </section>
   </main>
 
