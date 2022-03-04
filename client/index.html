@@ -11,48 +11,110 @@
   <link rel="stylesheet" href="assets/style/main.css">
   <title>support-group1</title>
 </head>
+<style>
+  body.debug .container,
+  body.debug .container-fluid {
+    outline: 2px double blue;
+    outline-offset: -2px;
+  }
 
-<body>
+  body.debug .row {
+    outline: 2px dashed red;
+    outline-offset: -2px;
+    min-height: 20vh;
+  }
+
+  body.debug [class*="col-"] {
+    outline: 2px dotted forestgreen;
+    outline-offset: -3px;
+  }
+</style>
+
+<body class="debug">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
       <a class="navbar-brand" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
-        <span class="ml-2">support-group1</span>
+        <span class="ml-2">Villain Support Group</span>
       </a>
+      <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
+        aria-controls="offcanvasLeft">Profiles</button>
+
+      <!-- TODO MAKE THIS THE HOME BUTTON -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!-- NAVLINKS -->
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
   </header>
-  <main id="app">
-    <div class="container-fluid">
-      <div class="row my-3">
-        <div class="col-lg-5" id="auth-settings">
-          <div class="card p-2 skeleton-loader">
-            <div class="card-title p-2">
-              <div class="d-flex align-items-center">
-                <div class="skeleton-loader avatar"></div>
-                <div class="skeleton-loader text mx-2"></div>
+
+
+  <main class="containter-fluid mt-3">
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-6">
+        <form>
+          <div class="form-group">
+
+            <!-- TODO MAKE IMAGE IN URL DISPLAY -->
+            <div id="temp-image"></div>
+            <label for="formGroupExampleInput">Image URL</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="IMG Url">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Post</label>
+
+            <!-- TODO NEED TEXT TO WRAP -->
+            <input type="text" class="form-control overflow-auto" id="formGroupExampleInput2" placeholder="Post Here">
+          </div>
+        </form>
+        <div class="col-3"></div>
+
+        <!-- NOTE THIS IS THE TEST CARD -->
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6" id="post-template">
+            <div class="card mb-3">
+              <img src="https://thiscatdoesnotexist.com" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                  content.
+                  This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>
-            <div class="card-body border-top">
-              <div class="skeleton-loader text block"></div>
-              <div class="skeleton-loader text block"></div>
-              <div class="skeleton-loader text block"></div>
-            </div>
           </div>
+          <div class="col-3"></div>
         </div>
+
+        <!--  -->
+        <div class="row"></div>
+        <div class="col-3"></div>
+
+        <!-- NOTE THIS IS TO DISPLAY ANY POSTS -->
+        <div class="col-6" id="display-posts">
+        </div>
+        <div class="col-3"></div>
       </div>
     </div>
   </main>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+    <div class="offcanvas-header justify-content-center">
+      <h5 id="offcanvasLeftLabel">Profile</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      __________________________________
+    </div>
+  </div>
   <footer class="container-fluid bg-dark text-light">
     <div class="row text-center">
       <div class="col">
