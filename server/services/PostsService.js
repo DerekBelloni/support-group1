@@ -12,13 +12,13 @@ class PostsServivce {
 
   async getPostById(id) {
     const posts = await dbContext.Posts.findById(id)
-    await posts.populate('account', 'name picture description')
+    await posts.populate('account', 'name image description')
     return posts
   }
 
   async createPost(body) {
     const newPost = await dbContext.Posts.create(body)
-    await newPost.populate('account', 'name picture description')
+    await newPost.populate('account', 'name image description')
     return newPost
   }
 

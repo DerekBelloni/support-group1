@@ -7,7 +7,7 @@ export const AccountSchema = new Schema(
     subs: [{ type: String, unique: true }],
     email: { type: String, lowercase: true, unique: true },
     name: { type: String, required: true },
-    picture: { type: String },
+    image: { type: String },
     description: { type: String, require: true },
     // creatorId: { type: Schema.Types.ObjectId, required: true, ref: '' }
     // NOTE If you wish to add additional properties do so here
