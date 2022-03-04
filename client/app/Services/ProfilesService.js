@@ -9,7 +9,6 @@ import { api } from "./AxiosService.js";
 class ProfilesService {
     async getall() {
         const res = await api.get('api/profiles')
-        console.log(res.data);
         const profiles = res.data.map(s => new Profile(s))
         ProxyState.profiles = profiles
         console.log("Profiles Grabbed are...", ProxyState.profiles);

@@ -20,9 +20,9 @@ export class Post {
           <img src="${this.imgUrl}" class="card-img-top" alt="post_image">
           <div class="card-body">
             <div class="d-flex  align-items-center justify-content-start me-5">
-              <img class="me-5 m-2" src="${this.creator}"
+              <img class="me-5 m-2" src="${this.profileImg}"
                 height="45" alt="" loading="lazy">
-              <h2 class="me-5">${this.creatorName}</h2>
+              <h2 class="me-5">${this.profileName}</h2>
               <i class="mdi mdi-pencil mdi-18px"></i>
             </div>
             <p class="card-text">${this.description}.</p>
