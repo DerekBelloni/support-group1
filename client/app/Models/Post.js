@@ -6,8 +6,8 @@ export class Post {
         this.description = data.description
         this.image = data.image || "https://thiscatdoesnotexist.com"
         this.profileId = data.profileId
-        this.profileImage = data.profile.image
-        this.profileName = data.profile.name
+        this.profileImage = data.account.image
+        this.profileName = data.account.name
     }
 
 
