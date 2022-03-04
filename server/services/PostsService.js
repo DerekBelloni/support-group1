@@ -2,23 +2,22 @@ import { dbContext } from "../db/DbContext";
 import { Forbidden } from "../utils/Errors";
 
 class PostsServivce {
-  async removePost(body) {
-    const remove = await dbContext.Posts.findById(body.id)
-    if (remove.profileId.toString() !== body.id) {
-      throw new Forbidden('not your post to delete')
-    }
-    const removePost = await dbContext.Posts.findByIdAndDelete(remove)
-    return `deleted ${removePost}`
+
+
+
+  async getAllPosts(query = {}) {
+    const allPosts = await dbContext.Posts.find(query)
+    return allPosts
+  }
+
+  getPostById(id) {
+    throw new Error("Method not implemented.");
   }
 
   async createPost(body) {
     const newPost = await dbContext.Posts.create(body)
     await newPost.populate('account', 'name picture description')
     return newPost
-  }
-  async getAllPosts(query = {}) {
-    const allPosts = await dbContext.Posts.find(query)
-    return allPosts
   }
 
   async editPost(update) {
@@ -30,6 +29,16 @@ class PostsServivce {
     await original.save()
     return original
   }
+
+  async removePost(body) {
+    const remove = await dbContext.Posts.findById(body.id)
+    if (remove.profileId.toString() !== body.id) {
+      throw new Forbidden('not your post to delete')
+    }
+    const removePost = await dbContext.Posts.findByIdAndDelete(remove)
+    return `deleted ${removePost}`
+  }
+
 
 }
 

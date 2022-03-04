@@ -8,6 +8,7 @@ export class PostsController extends BaseController {
     super('api/posts')
     this.router
       .get('', this.getAllPosts)
+      .get('/:id', this.getPostsById)
       // .get('/:id', this.getPostById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPost)
@@ -16,12 +17,22 @@ export class PostsController extends BaseController {
   }
 
 
+
   async getAllPosts(req, res, next) {
     try {
       const posts = await postsService.getAllPosts(req.query)
       return res.send(posts)
     } catch (error) {
       next(error)
+    }
+  }
+
+  async getPostsById(req, res, next) {
+    try {
+      const posts = await postsService.getPostById(req.params.id)
+      return res.send(posts)
+    } catch (error) {
+
     }
   }
 
