@@ -10,8 +10,10 @@ class PostsServivce {
     return allPosts
   }
 
-  getPostById(id) {
-    throw new Error("Method not implemented.");
+  async getPostById(id) {
+    const posts = await dbContext.Posts.findById(id)
+    await posts.populate('account', 'name picture description')
+    return posts
   }
 
   async createPost(body) {
