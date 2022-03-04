@@ -40,7 +40,11 @@ export class PostsController extends BaseController {
 
   async editPost(req, res, next) {
     try {
-      req.body.id = req.profileId
+      // notes set request to id to params id 
+      // then set the profile or who ever created it to the user id
+
+      req.body.id = req.params.id
+      req.body.profileId = req.userInfo.id
       const editedPost = await postsService.editPost(req.body)
       return res.send(editedPost)
     } catch (error) {
@@ -49,8 +53,15 @@ export class PostsController extends BaseController {
   }
 
 
-  removePost(arg0, removePost) {
-    throw new Error("Method not implemented.");
+  async removePost(req, res, next) {
+    try {
+      req.body.id = req.params.id
+      req.body.profileId = req.userInfo.id
+      const remove = await postsService.removePost(req.body)
+      return res.send(remove)
+    } catch (error) {
+      next(error)
+    }
   }
 
 }
