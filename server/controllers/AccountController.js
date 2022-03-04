@@ -6,8 +6,8 @@ export class AccountController extends BaseController {
   constructor() {
     super('account')
     this.router
-      .get('', this.getUserAccount)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getUserAccount)
       .post('', this.createProfile)
       .delete('', this.deleteProfile)
       .put('', this.updateProfile)
