@@ -9,7 +9,6 @@ async function _drawProfiles() {
     } catch (error) {
         next(error)
     }
-    console.log("Drew Profiles");
 }
 
 async function _drawUserProfile() {
@@ -26,8 +25,6 @@ async function _getall() {
     } catch (error) {
         next(error)
     }
-    console.log("On load user is...", ProxyState.user);
-    console.log("Account is...", ProxyState.account);
 }
 
 export class ProfilesController {
