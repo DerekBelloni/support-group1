@@ -6,7 +6,7 @@ class PostsServivce {
 
 
   async getAllPosts(query = {}) {
-    const allPosts = await dbContext.Posts.find(query).populate('account', 'name image description')
+    const allPosts = await dbContext.Posts.find(query).populate('account', 'name ')
     return allPosts
   }
 
