@@ -26,7 +26,7 @@ class ProfilesService {
         let realUser = ProxyState.profiles.find(p => p._id == id)
         console.log("User is...", ProxyState.user);
         document.getElementById('display-user').innerHTML = `<h2 class="p-2" onclick="app.profilesController.setActiveProfile('${ProxyState.user.id}}')">Hello, ${ProxyState.user.nickname}</h2>
-        <div><img style="width: 200px; height: 200px;" src="${realUser.imgUrl}" alt="Profile_Image"></div>`
+        <div><img style="width: 200px; height: 200px;" class="rounded" src="${realUser.imgUrl}" alt="Profile_Image"></div>`
     }
 
     async setActiveProfile(id) {
