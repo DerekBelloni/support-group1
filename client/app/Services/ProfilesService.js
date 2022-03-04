@@ -1,4 +1,4 @@
-import { ProfilesController } from "../Controllers/ProfilesController.js";
+import { ProxyState } from "../AppState.js";
 import { api } from "./AxiosService.js";
 
 
@@ -12,7 +12,9 @@ class ProfilesService {
 
     }
 
-
+    async setActiveProfile(id) {
+        ProxyState.activeProfile
+    }
 
 
 }
