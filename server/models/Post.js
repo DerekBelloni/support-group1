@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 export const PostSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String },
   image: { type: String },
   description: { type: String, required: true },
   profileId: { type: ObjectId, required: true, ref: 'Account' }
