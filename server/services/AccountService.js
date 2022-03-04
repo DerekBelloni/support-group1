@@ -1,4 +1,5 @@
 import { dbContext } from '../db/DbContext'
+import { Forbidden } from "../utils/Errors"
 
 // Private Methods
 
@@ -43,6 +44,31 @@ function sanitizeBody(body) {
 }
 
 class AccountService {
+  async deleteAccount(body) {
+
+    const removeProfile = await dbContext.Account.findById(body.id)
+    if (removeProfile.id !== body.id) {
+      throw new Forbidden("this isn't your account")
+    }
+    await dbContext.Account.findByIdAndDelete(removeProfile)
+
+    return `Deleted account, ${removeProfile}`
+  }
+  async updateProfile(update) {
+    const original = await dbContext.Account.findById(update.id)
+    if (original.id !== update.id) {
+      throw new Forbidden('this is not your Account')
+    }
+    original.name = update.name ? update.name : original.name
+    original.picture = update.picture ? update.picture : original.picture
+    original.description = update.description ? update.description : original.description
+    await original.save()
+    return original
+  }
+  async createProfile(body) {
+    const profile = await dbContext.Account.create(body)
+    return profile
+  }
   /**
    * Returns a user account from the Auth0 user object
    *
