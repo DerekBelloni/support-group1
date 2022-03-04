@@ -33,9 +33,7 @@ export class PostsController {
         let form = window.event.target
         const newPost = {
             image: form.image.value,
-            description: form.description.value,
-            profileId: ProxyState.user._id,
-            id: generateId()
+            description: form.description.value
         }
         postsService.createPost(newPost)
     }
