@@ -2,8 +2,8 @@
 
 export class Profile {
     constructor(data) {
-        this.id = data.id
-        this.imgUrl = data.imgUrl
+        this.id = data._id
+        this.imgUrl = data.imgUrl || "https://thiscatdoesnotexist.com"
         this.name = data.name
         this.description = data.description
     }
