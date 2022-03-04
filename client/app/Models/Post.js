@@ -1,10 +1,13 @@
+
+
 export class Post {
     constructor(data) {
         this.id = data.id
         this.description = data.description
-        this.imgUrl = data.imgUrl
+        this.image = data.image || "https://thiscatdoesnotexist.com"
         this.profileId = data.profileId
-        this.profileImg = data.profile.imgUrl
+
+        this.profileImage = data.profile.image
         this.profileName = data.profile.name
 
     }
@@ -20,7 +23,7 @@ export class Post {
           <img src="${this.imgUrl}" class="card-img-top" alt="post_image">
           <div class="card-body">
             <div class="d-flex  align-items-center justify-content-start me-5">
-              <img class="me-5 m-2" src="${this.profileImg}"
+              <img class="me-5 m-2" src="${this.profileImage}"
                 height="45" alt="" loading="lazy">
               <h2 class="me-5">${this.profileName}</h2>
               <i class="mdi mdi-pencil mdi-18px"></i>
