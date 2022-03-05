@@ -46,7 +46,7 @@ export class Post {
                 </div>
                 <ul>
                   <li>
-                    description for comments goes here.
+                    Comment
                   </li>
                 </ul>
               </div>
