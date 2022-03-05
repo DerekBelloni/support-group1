@@ -1,9 +1,7 @@
 import { dbContext } from "../db/DbContext"
 
 export class CommentsServices {
-  createComment() {
-    throw new Error("Method not implemented.")
-  }
+
   async getCommentById(id) {
     const comment = await dbContext.Comments.findById(id)
     return comment
@@ -12,6 +10,11 @@ export class CommentsServices {
   async getComments(query = {}) {
     const comments = await dbContext.Comments.find(query)
     return comments
+  }
+
+  async createComment(body) {
+    const newComment = await dbContext.Comments.create(body)
+    return newComment
   }
 
 }

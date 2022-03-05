@@ -34,7 +34,7 @@ class PostsServivce {
 
   async removePost(body) {
     const remove = await dbContext.Posts.findById(body.id)
-    if (remove.profileId.toString() !== body.id) {
+    if (remove.profileId.toString() !== body.profileId) {
       throw new Forbidden('not your post to delete')
     }
     const removePost = await dbContext.Posts.findByIdAndDelete(remove)
