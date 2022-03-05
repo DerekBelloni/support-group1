@@ -12,7 +12,6 @@ class PostsService {
         console.log("Posts Grabbed are...", ProxyState.posts);
     }
 
-
     async drawAllPosts() {
         console.log("drawing posts...");
         let template = ''
@@ -26,6 +25,19 @@ class PostsService {
         let realPost = new Post(res.data)
         ProxyState.posts = [realPost, ...ProxyState.posts]
         console.log("New Posts Array", ProxyState.posts);
+    }
+
+    async deletePost(postId) {
+        console.log("Service is Deleting Post...");
+        ProxyState.posts.filter(p => p.id != postId)
+        const postToDelete = ProxyState.posts.find(p => p.id == postId)
+        console.log(postToDelete);
+        const res = await api.delete(`api/posts/${postToDelete.id}`)
+
+        ProxyState.posts = ProxyState.posts
+
+
+
     }
 
 }

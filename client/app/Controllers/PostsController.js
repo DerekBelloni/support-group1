@@ -36,4 +36,13 @@ export class PostsController {
         }
         postsService.createPost(newPost)
     }
+
+    async deletePost(id) {
+        try {
+            console.log("Controller is Deleting Post...");
+            await postsService.deletePost(id)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
