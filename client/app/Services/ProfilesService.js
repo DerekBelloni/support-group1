@@ -11,7 +11,7 @@ class ProfilesService {
         const res = await api.get('api/profiles')
         const profiles = res.data.map(s => new Profile(s))
         ProxyState.profiles = profiles
-        console.log("Profiles Grabbed are...", ProxyState.profiles);
+
     }
 
     async drawProfiles() {
@@ -28,10 +28,6 @@ class ProfilesService {
         <div><img style="width: 200px; height: 200px;" class="rounded" src="${realUser.image}" alt="Profile_Image"></div>`
     }
 
-    async setActiveProfile(id) {
-        let realProfile = ProxyState.profiles.find(p => p.id == id)
-        ProxyState.activeProfile = realProfile
-    }
 
 
 }

@@ -27,7 +27,7 @@ export class Post {
               <img class="me-5 m-2" src="${this.profileImage}"
                 height="45" alt="" loading="lazy">
               <h2 class="me-5">${this.profileName}</h2>
-              <i class="mdi mdi-pencil mdi-18px"></i>
+             
             </div>
             <p class="card-text">${this.description}.</p>
             <div class="">

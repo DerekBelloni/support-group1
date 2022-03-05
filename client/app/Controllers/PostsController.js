@@ -19,15 +19,25 @@ async function _drawAllPosts() {
     }
 }
 
+async function _drawActivePosts() {
+    let template = ''
+    ProxyState.activePosts.forEach(p => template += p.PostTemplate)
+    document.getElementById('display-posts').innerHTML = template
+}
+
+
+
 
 export class PostsController {
     constructor() {
-        console.log("Post Controller Loaded...");
+
         ProxyState.on("posts", _drawAllPosts)
+        ProxyState.on('activePosts', _drawActivePosts)
         _getAllPosts()
+
     }
     async createPost() {
-        console.log("Creating Post...");
+
         window.event.preventDefault()
         let form = window.event.target
         const newPost = {
@@ -44,5 +54,19 @@ export class PostsController {
         } catch (error) {
             console.log(error);
         }
+    }
+    async drawById(id) {
+
+        try {
+            const activePosts = ProxyState.posts.filter(p => p.profileId == id)
+            ProxyState.activePosts = activePosts
+
+            console.log(activePosts);
+
+
+        } catch (error) {
+            console.error(error);
+        }
+
     }
 }

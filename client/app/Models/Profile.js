@@ -9,7 +9,7 @@ export class Profile {
     }
 
     get ProfileTemplate() {
-        return `<h4 class="p-2" onclick="app.profilesController.setActiveProfile('${this.id}')">${this.name}</h4>`
+        return `<h4 class="p-2" onclick="app.postsController.drawById('${this.id}')">${this.name}</h4>`
     }
 
 }

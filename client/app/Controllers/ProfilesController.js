@@ -4,12 +4,12 @@ import { profilesService } from "../Services/ProfilesService.js";
 
 
 async function _drawProfiles() {
-    try {
-        await profilesService.drawProfiles()
-    } catch (error) {
-        next(error)
-    }
+    let template = ''
+    ProxyState.profiles.forEach(p => template += p.ProfileTemplate)
+    document.getElementById('display-profiles').innerHTML = template
 }
+
+
 
 async function _drawUserProfile() {
     try {
@@ -23,7 +23,7 @@ async function _getAll() {
     try {
         await profilesService.getAll()
     } catch (error) {
-        next(error)
+        console.error(error)
     }
 }
 
@@ -32,15 +32,8 @@ export class ProfilesController {
         console.log('Profiles controller loaded');
         ProxyState.on("user", _drawUserProfile)
         ProxyState.on("profiles", _drawProfiles)
+        _drawProfiles()
         _getAll()
-    }
-
-    async setActiveProfile(id) {
-        try {
-            await profilesService.setActiveProfile(id)
-        } catch (error) {
-            console.log(error);
-        }
     }
 
 
