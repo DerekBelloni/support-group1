@@ -7,9 +7,8 @@ import { api } from "./AxiosService.js";
 class PostsService {
     async getAllPosts() {
         const res = await api.get('api/posts')
-        console.log("Posts are...", res.data);
-        const posts = res.data.map(p => new Post(p))
-        ProxyState.posts = posts
+        const realPosts = res.data.map(p => new Post(p))
+        ProxyState.posts = realPosts
         console.log("Posts Grabbed are...", ProxyState.posts);
     }
 
@@ -26,7 +25,7 @@ class PostsService {
         const res = await api.post('api/posts', newPost)
         let realPost = new Post(res.data)
         ProxyState.posts = [realPost, ...ProxyState.posts]
-        console.log(ProxyState.posts);
+        console.log("New Posts Array", ProxyState.posts);
     }
 
 }

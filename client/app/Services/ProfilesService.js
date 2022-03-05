@@ -7,7 +7,7 @@ import { api } from "./AxiosService.js";
 
 
 class ProfilesService {
-    async getall() {
+    async getAll() {
         const res = await api.get('api/profiles')
         const profiles = res.data.map(s => new Profile(s))
         ProxyState.profiles = profiles

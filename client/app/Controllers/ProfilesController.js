@@ -19,9 +19,9 @@ async function _drawUserProfile() {
     }
 }
 
-async function _getall() {
+async function _getAll() {
     try {
-        await profilesService.getall()
+        await profilesService.getAll()
     } catch (error) {
         next(error)
     }
@@ -32,7 +32,7 @@ export class ProfilesController {
         console.log('Profiles controller loaded');
         ProxyState.on("user", _drawUserProfile)
         ProxyState.on("profiles", _drawProfiles)
-        _getall()
+        _getAll()
     }
 
     async setActiveProfile(id) {

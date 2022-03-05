@@ -9,7 +9,6 @@ async function _getAllPosts() {
     } catch (error) {
         console.log(error);
     }
-    _drawAllPosts()
 }
 
 async function _drawAllPosts() {
