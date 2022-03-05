@@ -32,7 +32,7 @@
   }
 </style>
 
-<body class="debug">
+<body>
 
   <!-- NOTE THIS IS THE HEADER/NAV BAR -->
   <section>
@@ -61,28 +61,31 @@
 
   <!-- NOTE THIS IS THE POST FORM -->
   <section>
-    <div class="row mt-3">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <form onsubmit="app.postsController.createPost(id)">
-          <div class="">
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                <h5>Whats on your mind today?</h5>
-              </label>
-              <textarea name="description" class="form-control" min="5" max="500" id="description" rows="3"></textarea>
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <form onsubmit="app.postsController.createPost(id)">
+            <div class="">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  <h5>Whats on your mind today?</h5>
+                </label>
+                <textarea name="description" class="form-control" min="5" max="500" id="description"
+                  rows="3"></textarea>
+              </div>
+              <h6>Image:</h6>
+              <input class="form-control my-3" type="text" placeholder="Image Upload..."
+                aria-label="default input example" id="image" name="image">
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-primary text-end">Post
+                </button>
+              </div>
             </div>
-            <h6>Image:</h6>
-            <input class="form-control my-3" type="text" placeholder="Image Upload..."
-              aria-label="default input example" id="image" name="image">
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-primary text-end">Post
-              </button>
-            </div>
-          </div>
+        </div>
+        </form>
+        <div class="col-3"></div>
       </div>
-      </form>
-      <div class="col-3"></div>
     </div>
   </section>
 

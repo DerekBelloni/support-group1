@@ -21,7 +21,7 @@ export class Post {
           <div class="d-flex justify-content-end">
             <i class="mdi mdi-close-thick mdi-18px m-1"></i>
           </div>
-          <img src="${this.imgUrl}" class="card-img-top" alt="post_image">
+          <img src="${this.image}" class="card-img-top" alt="post_image">
           <div class="card-body">
             <div class="d-flex  align-items-center justify-content-start me-5">
               <img class="me-5 m-2" src="${this.profileImage}"
