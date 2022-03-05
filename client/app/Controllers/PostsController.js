@@ -44,7 +44,8 @@ export class PostsController {
             image: form.image.value,
             description: form.description.value
         }
-        postsService.createPost(newPost)
+        await postsService.createPost(newPost)
+        form.reset()
     }
 
     async deletePost(id) {
