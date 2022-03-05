@@ -47,7 +47,9 @@ export class CommentsController extends BaseController {
 
   async editComments(req, res, next) {
     try {
-      const
+      req.body.id = req.params.id
+      req.body.profileId = req.userInfo.id
+      const editedComments = await commentsServices.editComments(req.body)
     } catch (error) {
       next(error)
     }
