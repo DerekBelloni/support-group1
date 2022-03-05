@@ -19,7 +19,7 @@ export class Post {
       <div class="col-6">
         <div class="card shadow my-5">
           <div class="d-flex justify-content-end">
-            <i class="mdi mdi-close-thick mdi-18px m-1"></i>
+            <button onclick="app.postsController.deletePost('${this.id}')" class="mdi mdi-close-thick mdi-18px m-1">Del</button>
           </div>
           <img src="${this.image}" class="card-img-top" alt="post_image">
           <div class="card-body">
@@ -52,9 +52,9 @@ export class Post {
               </div>
             </div>
           </div>
-        <div class="col-3"></div>
         </div>
       </div>
+      <div class="col-3"></div>
     </div>`
     }
 }
