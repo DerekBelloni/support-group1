@@ -47,14 +47,24 @@ export class CommentsController extends BaseController {
 
   async editComments(req, res, next) {
     try {
-      const
+      req.body.id = req.params.id
+      req.body.profileId = req.userInfo.id
+      const editedComments = await commentsServices.editComments(req.body)
+      return res.send(editedComments)
     } catch (error) {
       next(error)
     }
   }
 
   async deleteComments(req, res, next) {
-    throw new Error("Method not implemented.");
+    try {
+      req.body.id = req.params.id
+      req.body.profileId = req.userInfo.id
+      const remove = await commentsServices.deleteComments(req.body)
+      return res.send(remove)
+    } catch (error) {
+      next(error)
+    }
   }
 
 }
